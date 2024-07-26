@@ -36,7 +36,7 @@ public AnnotationConfigApplicationContext(Class<?>... componentClasses) {
 }
 ```
 
-this是无参构造方法，该方法创建了reader和scanner对象。reader用于显示注册bean，scanner用于路径扫描注册bean。两者都可以解析bean注解。
+this()是无参构造方法，该方法创建了reader和scanner对象。reader用于显示注册bean，scanner用于路径扫描注册bean。两者都可以解析bean注解。
 
 ```java
 public AnnotationConfigApplicationContext() {
@@ -48,9 +48,9 @@ public AnnotationConfigApplicationContext() {
 }
 ```
 
-register用于将bean定义解析生成BeanDefinition并存入集合中。refresh用于通过定义实例化bean。
+register()用于将bean定义解析生成BeanDefinition并存入集合中。refresh()用于通过定义实例化bean。
 
-register调用reader.register进行注册。
+register()调用reader.register()进行注册。
 
 ```java
 // reader.register -> doRegisterBean
@@ -125,7 +125,7 @@ bean注册到定义集合中，集合的位置如下：
 
 ![](../img/bean定义集合位置.svg)
 
-refresh
+refresh()
 
 ```java
 public void refresh() throws BeansException, IllegalStateException {
@@ -213,7 +213,7 @@ public void refresh() throws BeansException, IllegalStateException {
 }
 ```
 
-prepareRefresh
+prepareRefresh()
 
 ```java
 protected void prepareRefresh() {
@@ -257,11 +257,11 @@ protected void prepareRefresh() {
 }
 ```
 
-可重写initPropertySources来替换所有根属性源。
+可重写initPropertySources()来替换所有根属性源。
 
-obtainFreshBeanFactory是子类实现的，可以通过重写自定义工厂刷新方法。
+obtainFreshBeanFactory()是子类实现的，可以通过重写自定义工厂刷新方法。
 
-prepareBeanFactory
+prepareBeanFactory()
 
 ```java
 protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
@@ -325,4 +325,4 @@ protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 
 ApplicationContextAwareProcessor是一个后置处理器实现类，它的作用是将ApplicationContext、Environment、StringValueResolver提供给实现了EnvironmentAware、EmbeddedValueResolverAware、ResourceLoaderAware、ApplicationEventPublisherAware、MessageSourceAware、and/or ApplicationContextAware的bean。（XxxAware的作用即是用来获取上下文中的Xxx对象）
 
-registerResolvableDependency用于给依赖手动赋值。该方法适用于工厂/上下文中被标识为自动装配但却没有声明为bean的类。
+registerResolvableDependency()用于给依赖手动赋值。该方法适用于工厂/上下文中被标识为自动装配但却没有声明为bean的类。
