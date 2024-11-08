@@ -1,4 +1,4 @@
-# 创建
+# Bean创建
 
 指定类创建：
 
@@ -326,3 +326,8 @@ protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 ApplicationContextAwareProcessor是一个后置处理器实现类，它的作用是将ApplicationContext、Environment、StringValueResolver提供给实现了EnvironmentAware、EmbeddedValueResolverAware、ResourceLoaderAware、ApplicationEventPublisherAware、MessageSourceAware、and/or ApplicationContextAware的bean。（XxxAware的作用即是用来获取上下文中的Xxx对象）
 
 registerResolvableDependency()用于给依赖手动赋值。该方法适用于工厂/上下文中被标识为自动装配但却没有声明为bean的类。
+
+
+
+# 流程
+
